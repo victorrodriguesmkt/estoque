@@ -6,32 +6,48 @@
 <title>Catálogo de Cílios</title>
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial;background:#fff;color:#333;padding:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:#0b0b0b;
+  font-family:Arial, Helvetica, sans-serif;
+  color:#fff;
+  padding:20px;
+}
 
 .header{
   text-align:center;
-  margin-bottom:24px;
+  margin-bottom:30px;
 }
 
 .header h1{
-  color:#e91e63;
+  font-size:28px;
+  letter-spacing:2px;
+}
+
+.header p{
+  opacity:.6;
+  margin-top:6px;
 }
 
 .grid{
   display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px,1fr));
-  gap:16px;
+  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:18px;
 }
 
 .card{
-  border:1px solid #eee;
-  border-radius:10px;
+  background:#141414;
+  border-radius:12px;
   overflow:hidden;
-  background:#fff;
-  box-shadow:0 4px 10px rgba(0,0,0,.05);
+  border:1px solid #222;
+  transition:.2s;
   display:flex;
   flex-direction:column;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  border-color:#333;
 }
 
 .card img{
@@ -41,68 +57,109 @@ body{margin:0;font-family:Arial;background:#fff;color:#333;padding:16px}
 }
 
 .content{
-  padding:10px;
+  padding:12px;
   display:flex;
   flex-direction:column;
   flex:1;
 }
 
 .nome{
-  font-weight:bold;
   font-size:14px;
-  margin-bottom:6px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.desc{
+  font-size:12px;
+  opacity:.6;
+  margin-bottom:10px;
 }
 
 .preco{
-  color:#e91e63;
-  font-size:16px;
-  margin-bottom:10px;
+  font-size:18px;
+  color:#00ff88;
+  margin-bottom:12px;
 }
 
 .btn{
   margin-top:auto;
-  background:#25D366;
   text-align:center;
   padding:10px;
   border-radius:6px;
-  text-decoration:none;
+  background:#25D366;
   color:#000;
+  text-decoration:none;
   font-weight:bold;
+  font-size:14px;
 }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <h1>Catálogo de Cílios</h1>
+  <h1>CATÁLOGO DE CÍLIOS</h1>
   <p>Escolha seus produtos e peça pelo WhatsApp</p>
 </div>
 
-<div class="grid" id="grid"></div>
+<div class="grid">
 
-<script>
-fetch("https://SUA_PLANILHA_OU_WEBHOOK")
-.then(r=>r.json())
-.then(produtos=>{
-  const grid=document.getElementById("grid");
+  <!-- PRODUTO 1 -->
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1585386959984-a41552231658?q=80&w=800">
+    <div class="content">
+      <div class="nome">Cílios YY 0.07 D</div>
+      <div class="desc">Perfeito para volume russo e aplicação leve</div>
+      <div class="preco">R$ 39,90</div>
+      <a class="btn" target="_blank"
+         href="https://wa.me/5599999999999?text=Quero comprar Cílios YY 0.07 D">
+         Comprar no WhatsApp
+      </a>
+    </div>
+  </div>
 
-  produtos.forEach(p=>{
-    grid.innerHTML += `
-      <div class="card">
-        <img src="${p.foto}">
-        <div class="content">
-          <div class="nome">${p.nome}</div>
-          <div class="preco">R$ ${Number(p.preco).toFixed(2)}</div>
-          <a class="btn" target="_blank"
-             href="https://wa.me/5599999999999?text=Quero comprar: ${p.nome}">
-             Comprar no WhatsApp
-          </a>
-        </div>
-      </div>
-    `
-  })
-})
-</script>
+  <!-- PRODUTO 2 -->
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800">
+    <div class="content">
+      <div class="nome">Cílios W 0.05 C</div>
+      <div class="desc">Ideal para mega volume e efeito marcante</div>
+      <div class="preco">R$ 42,90</div>
+      <a class="btn" target="_blank"
+         href="https://wa.me/5599999999999?text=Quero comprar Cílios W 0.05 C">
+         Comprar no WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- PRODUTO 3 -->
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?q=80&w=800">
+    <div class="content">
+      <div class="nome">Pinça Curva Profissional</div>
+      <div class="desc">Aço inox, alta precisão para lash designers</div>
+      <div class="preco">R$ 59,90</div>
+      <a class="btn" target="_blank"
+         href="https://wa.me/5599999999999?text=Quero comprar Pinça Curva Profissional">
+         Comprar no WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- PRODUTO 4 -->
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1588776814546-ec7e55f1d4ef?q=80&w=800">
+    <div class="content">
+      <div class="nome">Shampoo para Cílios</div>
+      <div class="desc">Limpeza profunda sem danificar a extensão</div>
+      <div class="preco">R$ 34,90</div>
+      <a class="btn" target="_blank"
+         href="https://wa.me/5599999999999?text=Quero comprar Shampoo para Cílios">
+         Comprar no WhatsApp
+      </a>
+    </div>
+  </div>
+
+</div>
 
 </body>
 </html>
